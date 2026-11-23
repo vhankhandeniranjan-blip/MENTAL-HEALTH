@@ -13,7 +13,7 @@
     const urgentReply = 'I’m really glad you told me. You deserve support right now, and you should not have to handle this alone. Please go to a trusted adult now (such as a parent, guardian, teacher or school counsellor) and tell them clearly that you need help staying safe. Stay with that adult. If there is immediate danger in India, call 112 or go to the nearest emergency department with an adult. You can also call Tele-MANAS at 14416 for mental-health support. This chatbot is not monitored and cannot provide emergency care.';
 
     const topics = [
-        {
+         {
             id: 'exam',
             words: ['exam', 'exams', 'test', 'revision', 'study', 'studying', 'marks', 'grades', 'homework', 'syllabus', 'study pressure', 'fear of failing'],
             reply: 'Exam pressure can feel heavy, but you do not have to solve everything at once. Try this small plan:\n\n1. Pick one topic to work on for 20–25 minutes.\n2. Take a short water or stretch break.\n3. Test yourself with a few questions instead of only rereading.\n4. Write down the next tiny task.\n\nA mark does not define your worth. What subject or topic feels hardest right now?'
