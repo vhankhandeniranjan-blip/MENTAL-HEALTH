@@ -1,0 +1,1041 @@
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap');
+
+/* ==============================
+   1. GLOBAL SETTINGS
+================================ */
+
+:root {
+    --navy: #183247;
+    --teal: #168B83;
+    --teal-dark: #11736D;
+    --blue-light: #E8F3F5;
+    --mint: #E8F2ED;
+    --yellow: #F2B84B;
+    --coral: #E7836B;
+    --white: #FFFFFF;
+    --text: #344653;
+    --muted: #71808A;
+    --border: #E1E9EC;
+    --background: #FAFCFC;
+    --shadow: 0 12px 35px rgba(24, 50, 71, 0.08);
+    --radius: 18px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--background);
+    color: var(--text);
+    line-height: 1.7;
+}
+
+h1, h2, h3, h4 {
+    font-family: 'Manrope', sans-serif;
+    color: var(--navy);
+    line-height: 1.25;
+}
+
+p {
+    color: var(--muted);
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button {
+    font: inherit;
+}
+
+.container {
+    width: min(1120px, 90%);
+    margin: 0 auto;
+}
+
+.section {
+    padding: 85px 0;
+}
+
+/* ==============================
+   2. HEADER AND NAVIGATION
+================================ */
+
+.site-header {
+    background: rgba(255, 255, 255, 0.96);
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    backdrop-filter: blur(12px);
+}
+
+.navbar {
+    min-height: 76px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    font-family: 'Manrope', sans-serif;
+    font-size: 1.45rem;
+    font-weight: 800;
+    color: var(--navy);
+}
+
+.logo span {
+    color: var(--teal);
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.nav-links a {
+    color: var(--text);
+    font-size: 0.93rem;
+    font-weight: 600;
+    transition: color 0.25s ease;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: var(--teal);
+}
+
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--navy);
+    font-size: 1.7rem;
+    cursor: pointer;
+}
+
+/* ==============================
+   3. HERO SECTION
+================================ */
+
+.hero {
+    min-height: 600px;
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    align-items: center;
+    gap: 55px;
+    padding-top: 65px;
+    padding-bottom: 65px;
+}
+
+.eyebrow {
+    color: var(--teal);
+    font-size: 0.76rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-bottom: 18px;
+}
+
+.hero h1,
+.page-hero h1 {
+    font-size: clamp(2.5rem, 5vw, 4.4rem);
+    font-weight: 800;
+    letter-spacing: -2px;
+    margin-bottom: 24px;
+}
+
+.hero h1 span,
+.page-hero h1 span {
+    color: var(--teal);
+}
+
+.hero-description {
+    max-width: 570px;
+    font-size: 1.08rem;
+    margin-bottom: 30px;
+}
+
+.hero-actions {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+}
+
+.small-note {
+    font-size: 0.82rem;
+    color: var(--muted);
+    margin-top: 20px;
+}
+
+.hero-visual {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-circle {
+    width: 340px;
+    height: 340px;
+    border-radius: 50%;
+    background: var(--blue-light);
+    border: 18px solid var(--mint);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 35px;
+    box-shadow: var(--shadow);
+}
+
+.hero-emoji {
+    font-size: 6rem;
+    margin-bottom: 10px;
+}
+
+.hero-circle h2 {
+    font-size: 1.35rem;
+}
+
+.hero-circle p {
+    margin-top: 8px;
+}
+
+/* ==============================
+   4. BUTTONS
+================================ */
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 13px 24px;
+    border-radius: 9px;
+    font-size: 0.92rem;
+    font-weight: 700;
+    border: 2px solid transparent;
+    cursor: pointer;
+    transition: 0.25s ease;
+}
+
+.btn-primary {
+    background: var(--teal);
+    color: var(--white);
+}
+
+.btn-primary:hover {
+    background: var(--teal-dark);
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    background: transparent;
+    color: var(--navy);
+    border-color: var(--border);
+}
+
+.btn-secondary:hover {
+    border-color: var(--teal);
+    color: var(--teal);
+}
+
+button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* ==============================
+   5. SECTION HEADINGS
+================================ */
+
+.section-heading {
+    max-width: 680px;
+    margin: 0 auto 45px;
+    text-align: center;
+}
+
+.section-heading h2 {
+    font-size: clamp(1.9rem, 3vw, 2.7rem);
+    margin-bottom: 15px;
+}
+
+.section-heading > p:last-child {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* ==============================
+   6. FEATURE CARDS
+================================ */
+
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+.feature-card {
+    background: var(--white);
+    padding: 30px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    transition: transform 0.25s ease, border-color 0.25s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-6px);
+    border-color: var(--teal);
+}
+
+.feature-icon {
+    width: 62px;
+    height: 62px;
+    background: var(--blue-light);
+    border-radius: 16px;
+    display: grid;
+    place-items: center;
+    font-size: 1.9rem;
+    margin-bottom: 22px;
+}
+
+.feature-card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 12px;
+}
+
+.feature-card p {
+    font-size: 0.93rem;
+}
+
+.link-card {
+    display: block;
+}
+
+.card-link {
+    display: inline-block;
+    color: var(--teal);
+    font-weight: 700;
+    margin-top: 18px;
+}
+
+/* ==============================
+   7. HIGHLIGHT SECTION
+================================ */
+
+.highlight-section {
+    background: var(--blue-light);
+}
+
+.highlight-content {
+    display: grid;
+    grid-template-columns: 1.5fr 0.5fr;
+    align-items: center;
+    gap: 40px;
+}
+
+.highlight-content h2 {
+    font-size: clamp(1.9rem, 3vw, 2.8rem);
+    margin-bottom: 20px;
+}
+
+.highlight-content p {
+    margin-bottom: 25px;
+    max-width: 620px;
+}
+
+.highlight-symbol {
+    font-size: 8rem;
+    text-align: center;
+}
+
+/* ==============================
+   8. PAGE HERO
+================================ */
+
+.page-hero {
+    padding-top: 95px;
+    padding-bottom: 65px;
+    text-align: center;
+    max-width: 850px;
+}
+
+.page-hero h1 {
+    font-size: clamp(2.4rem, 4.5vw, 3.7rem);
+}
+
+.page-hero > p:last-child {
+    max-width: 680px;
+    margin: 0 auto;
+    font-size: 1.05rem;
+}
+
+/* ==============================
+   9. CHALLENGE CARDS
+================================ */
+
+.challenge-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+.challenge-card {
+    background: var(--white);
+    padding: 28px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+}
+
+.challenge-card h3 {
+    margin-bottom: 12px;
+}
+
+.challenge-card > p {
+    font-size: 0.93rem;
+}
+
+.expand-button {
+    background: none;
+    border: none;
+    color: var(--teal);
+    font-weight: 700;
+    cursor: pointer;
+    margin-top: 20px;
+    padding: 6px 0;
+}
+
+.expand-content {
+    border-top: 1px solid var(--border);
+    margin-top: 15px;
+    padding-top: 15px;
+}
+
+.expand-content p {
+    margin-bottom: 8px;
+    color: var(--navy);
+}
+
+.expand-content ul {
+    padding-left: 20px;
+    color: var(--muted);
+    font-size: 0.9rem;
+}
+
+.expand-content li {
+    margin-bottom: 7px;
+}
+
+/* ==============================
+   10. MOOD CHECK-IN
+================================ */
+
+.mood-card,
+.breathing-card {
+    max-width: 800px;
+    margin: 0 auto;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 24px;
+    padding: 40px;
+    text-align: center;
+    box-shadow: var(--shadow);
+}
+
+.mood-options {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.mood-option {
+    min-width: 105px;
+    background: var(--background);
+    border: 2px solid var(--border);
+    border-radius: 14px;
+    padding: 18px 14px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 7px;
+    cursor: pointer;
+    transition: 0.25s ease;
+    color: var(--navy);
+}
+
+.mood-option span {
+    font-size: 2.2rem;
+}
+
+.mood-option strong {
+    font-size: 0.85rem;
+}
+
+.mood-option:hover,
+.mood-option.selected {
+    border-color: var(--teal);
+    background: var(--mint);
+    transform: translateY(-3px);
+}
+
+.mood-message {
+    background: var(--blue-light);
+    border-radius: 12px;
+    padding: 18px;
+    margin-top: 30px;
+    color: var(--navy);
+    font-weight: 600;
+}
+
+/* ==============================
+   11. BREATHING EXERCISE
+================================ */
+
+.breathing-card {
+    max-width: 600px;
+}
+
+.breathing-circle {
+    width: 210px;
+    height: 210px;
+    border-radius: 50%;
+    background: var(--teal);
+    margin: 10px auto 30px;
+    display: grid;
+    place-items: center;
+    color: var(--white);
+    font-size: 1.4rem;
+    font-weight: 700;
+    box-shadow: 0 0 0 18px rgba(22, 139, 131, 0.12);
+    transition: transform 4s ease-in-out;
+}
+
+.breathing-circle.inhale {
+    transform: scale(1.18);
+}
+
+.breathing-circle.exhale {
+    transform: scale(0.85);
+}
+
+.breathing-actions {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 25px;
+    flex-wrap: wrap;
+}
+
+/* ==============================
+   12. POSITIVE REMINDERS
+================================ */
+
+.reminder-section {
+    background: var(--mint);
+}
+
+.reminder-card {
+    text-align: center;
+    max-width: 800px;
+    padding: 35px 20px;
+}
+
+.reminder-card h2 {
+    font-size: clamp(1.8rem, 3vw, 2.6rem);
+    margin-bottom: 25px;
+}
+
+/* ==============================
+   13. QUIZ
+================================ */
+
+.quiz-container {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 40px;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 22px;
+    box-shadow: var(--shadow);
+}
+
+.quiz-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.quiz-header h2 {
+    font-size: 1.6rem;
+}
+
+.quiz-counter {
+    color: var(--teal);
+    font-size: 0.9rem;
+    font-weight: 700;
+}
+
+.quiz-progress {
+    height: 9px;
+    background: var(--blue-light);
+    border-radius: 20px;
+    overflow: hidden;
+    margin-bottom: 35px;
+}
+
+.quiz-progress-bar {
+    height: 100%;
+    width: 25%;
+    background: var(--teal);
+    border-radius: inherit;
+    transition: width 0.3s ease;
+}
+
+.quiz-question {
+    font-size: 1.35rem;
+    margin-bottom: 25px;
+}
+
+.quiz-options {
+    display: grid;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.quiz-option {
+    text-align: left;
+    padding: 16px 18px;
+    border: 2px solid var(--border);
+    background: var(--background);
+    border-radius: 10px;
+    cursor: pointer;
+    color: var(--text);
+    transition: 0.2s ease;
+}
+
+.quiz-option:hover:not(:disabled) {
+    border-color: var(--teal);
+    background: var(--blue-light);
+}
+
+.quiz-option.correct {
+    border-color: var(--teal);
+    background: var(--mint);
+}
+
+.quiz-option.wrong {
+    border-color: var(--coral);
+    background: #FFF0EC;
+}
+
+.quiz-option:disabled {
+    opacity: 1;
+    cursor: default;
+}
+
+.quiz-feedback {
+    min-height: 35px;
+    font-weight: 600;
+    margin: 15px 0;
+}
+
+.quiz-result {
+    text-align: center;
+    padding: 20px 0;
+}
+
+.result-icon {
+    font-size: 4rem;
+    margin-bottom: 15px;
+}
+
+.result-score {
+    color: var(--teal);
+    font-family: 'Manrope', sans-serif;
+    font-size: 3rem;
+    font-weight: 800;
+    margin: 15px 0;
+}
+
+/* ==============================
+   14. SUPPORT PAGE
+================================ */
+
+.helpline-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+    max-width: 850px;
+    margin: 0 auto;
+}
+
+.helpline-card {
+    background: var(--white);
+    padding: 35px;
+    text-align: center;
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow);
+}
+
+.helpline-card h3 {
+    margin-bottom: 12px;
+}
+
+.helpline-number {
+    display: inline-block;
+    font-size: 2.4rem;
+    color: var(--teal);
+    font-family: 'Manrope', sans-serif;
+    font-weight: 800;
+    margin: 12px 0;
+}
+
+.emergency-card .helpline-number {
+    color: var(--coral);
+}
+
+.support-steps {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.support-step {
+    display: flex;
+    gap: 25px;
+    padding: 25px 0;
+    border-bottom: 1px solid var(--border);
+}
+
+.step-number {
+    font-family: 'Manrope', sans-serif;
+    color: var(--teal);
+    font-size: 1.7rem;
+    font-weight: 800;
+}
+
+.support-step h3 {
+    margin-bottom: 7px;
+}
+
+/* ==============================
+   15. FOOTER
+================================ */
+
+.site-footer {
+    background: var(--navy);
+    padding: 45px 0 30px;
+    text-align: center;
+}
+
+.site-footer .logo {
+    color: var(--white);
+}
+
+.site-footer .logo span {
+    color: #71CFC5;
+}
+
+.site-footer p {
+    color: #C2D0D8;
+    margin-top: 12px;
+}
+
+.site-footer .copyright {
+    border-top: 1px solid rgba(255,255,255,0.15);
+    margin-top: 25px;
+    padding-top: 20px;
+    font-size: 0.83rem;
+}
+
+/* ==============================
+   16. ACCESSIBILITY
+================================ */
+
+button:focus-visible,
+a:focus-visible {
+    outline: 3px solid var(--yellow);
+    outline-offset: 4px;
+}
+
+[hidden] {
+    display: none !important;
+}
+
+/* ==============================
+   17. RESPONSIVE DESIGN
+================================ */
+
+@media (max-width: 900px) {
+
+    .hero {
+        grid-template-columns: 1fr 0.8fr;
+        gap: 25px;
+    }
+
+    .hero-circle {
+        width: 270px;
+        height: 270px;
+    }
+
+    .feature-grid,
+    .challenge-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .nav-links {
+        gap: 18px;
+    }
+}
+
+@media (max-width: 700px) {
+
+    .section {
+        padding: 60px 0;
+    }
+
+    .navbar {
+        min-height: 68px;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 68px;
+        left: 0;
+        width: 100%;
+        background: var(--white);
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 20px 5%;
+        gap: 18px;
+        border-bottom: 1px solid var(--border);
+        box-shadow: var(--shadow);
+    }
+
+    .nav-links.open {
+        display: flex;
+    }
+
+    .hero {
+        grid-template-columns: 1fr;
+        text-align: center;
+        padding-top: 60px;
+    }
+
+    .hero-description {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .hero-actions {
+        justify-content: center;
+    }
+
+    .hero-visual {
+        margin-top: 25px;
+    }
+
+    .hero-circle {
+        width: 250px;
+        height: 250px;
+    }
+
+    .hero-emoji {
+        font-size: 4.5rem;
+    }
+
+    .highlight-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .highlight-symbol {
+        font-size: 5rem;
+    }
+
+    .feature-grid,
+    .challenge-grid,
+    .helpline-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .page-hero {
+        padding-top: 65px;
+        padding-bottom: 40px;
+    }
+
+    .mood-card,
+    .breathing-card,
+    .quiz-container {
+        padding: 25px 18px;
+    }
+
+    .quiz-header {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .support-step {
+        gap: 15px;
+    }
+}
+
+@media (max-width: 400px) {
+
+    .hero h1 {
+        font-size: 2.4rem;
+    }
+
+    .mood-options {
+        gap: 8px;
+    }
+
+    .mood-option {
+        min-width: 85px;
+        padding: 13px 8px;
+    }
+
+    .mood-option span {
+        font-size: 1.8rem;
+    }
+
+    .btn {
+        width: 100%;
+    }
+}
+
+
+/* ==============================
+   MIND MATTERS CHATBOT
+================================ */
+.chatbot { position: fixed; right: 24px; bottom: 22px; z-index: 999; font-family: 'DM Sans', sans-serif; }
+.chatbot-launcher { display: flex; align-items: center; gap: 10px; border: 0; border-radius: 999px; padding: 13px 19px; color: #fff; background: var(--teal); box-shadow: 0 8px 25px rgba(17,115,109,.28); cursor: pointer; font-weight: 700; }
+.chatbot-launcher:hover { background: var(--teal-dark); transform: translateY(-1px); }
+.chatbot-launcher span:first-child { font-size: 1.25rem; }
+.chatbot-panel { position: absolute; right: 0; bottom: 68px; width: min(380px, calc(100vw - 32px)); height: min(590px, calc(100vh - 110px)); background: #fff; border: 1px solid var(--border); border-radius: 20px; box-shadow: 0 18px 55px rgba(24,50,71,.2); display: flex; flex-direction: column; overflow: hidden; }
+.chatbot-panel[hidden] { display: none; }
+.chatbot-header { display: flex; align-items: center; gap: 11px; padding: 15px 16px; background: var(--navy); color: #fff; }
+.chatbot-avatar { width: 42px; height: 42px; display: grid; place-items: center; border-radius: 50%; background: #e1f3ee; font-size: 1.35rem; }
+.chatbot-heading { flex: 1; min-width: 0; }
+.chatbot-heading h2 { color: #fff; font-size: 1rem; margin: 0; }
+.chatbot-heading p { color: #d5e7e9; font-size: .75rem; margin: 2px 0 0; }
+.chatbot-status-dot { display: inline-block; width: 7px; height: 7px; border-radius: 50%; background: #78d7a6; margin-right: 4px; }
+.chatbot-close { border: 0; color: #fff; background: transparent; font-size: 1.7rem; line-height: 1; cursor: pointer; padding: 2px 5px; }
+.chatbot-notice { padding: 9px 14px; color: #53636d; background: #f2f8f7; border-bottom: 1px solid var(--border); font-size: .72rem; line-height: 1.45; }
+.chatbot-messages { flex: 1; overflow-y: auto; padding: 15px 13px; display: flex; flex-direction: column; gap: 10px; background: #fbfdfd; }
+.chat-message { max-width: 88%; border-radius: 14px; padding: 10px 12px; font-size: .88rem; line-height: 1.55; overflow-wrap: anywhere; }
+.chat-message p { color: inherit; margin: 0; white-space: pre-wrap; }
+.assistant-message { align-self: flex-start; color: #344653; background: #edf4f3; border-bottom-left-radius: 4px; }
+.user-message { align-self: flex-end; color: #fff; background: var(--teal); border-bottom-right-radius: 4px; }
+.user-message p { color: #fff; }
+.chatbot-quick-prompts { display: flex; gap: 6px; overflow-x: auto; padding: 8px 11px; border-top: 1px solid var(--border); }
+.chatbot-quick-prompts button { flex: 0 0 auto; border: 1px solid #cfe3df; background: #f4faf8; color: var(--teal-dark); border-radius: 999px; padding: 6px 9px; font-size: .72rem; cursor: pointer; }
+.chatbot-form { display: flex; gap: 8px; align-items: center; padding: 10px 12px; border-top: 1px solid var(--border); }
+.chatbot-form textarea { flex: 1; resize: none; max-height: 90px; border: 1px solid var(--border); border-radius: 13px; padding: 10px 11px; font: inherit; font-size: .88rem; outline: none; }
+.chatbot-form textarea:focus { border-color: var(--teal); box-shadow: 0 0 0 2px rgba(22,139,131,.12); }
+.chatbot-form button { flex: 0 0 39px; width: 39px; height: 39px; border: 0; border-radius: 50%; color: #fff; background: var(--teal); font-size: 1.1rem; cursor: pointer; }
+.chatbot-form button:disabled { opacity: .55; cursor: wait; }
+.chatbot-footer { padding: 0 13px 10px; font-size: .68rem; line-height: 1.4; text-align: center; }
+.chatbot-typing { color: var(--muted); font-size: .8rem; font-style: italic; }
+.visually-hidden { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+@media (max-width: 480px) { .chatbot { right: 12px; bottom: 12px; } .chatbot-panel { right: -4px; bottom: 62px; width: calc(100vw - 24px); height: min(610px, calc(100dvh - 90px)); } .chatbot-launcher { padding: 12px 15px; } }
+
+
+/* ==========================================
+   MIND MATTERS — VISUAL POLISH UPDATE
+========================================== */
+:root {
+  --navy:#21334f; --teal:#258f83; --teal-dark:#176e68;
+  --blue-light:#eaf3ff; --mint:#e8f5ef; --yellow:#f4c76b;
+  --coral:#ed927e; --text:#39485a; --muted:#738093;
+  --border:#e4eaf1; --background:#f8fafc;
+  --shadow:0 18px 48px rgba(33,51,79,.09); --radius:24px;
+}
+body { background:linear-gradient(180deg,#fbfcff 0%,#f7fbfa 52%,#fbf9ff 100%); }
+.site-header { background:rgba(255,255,255,.88); box-shadow:0 4px 22px rgba(33,51,79,.035); }
+.logo { letter-spacing:-.8px; }
+.nav-links a { padding:9px 12px; border-radius:999px; }
+.nav-links a:hover,.nav-links a.active { background:#eaf5f2; }
+.hero { min-height:620px; gap:44px; }
+.hero h1 { letter-spacing:-2.8px; line-height:1.08; }
+.hero h1 span,.page-hero h1 span { background:linear-gradient(100deg,#258f83,#6888c8); -webkit-background-clip:text; background-clip:text; color:transparent; }
+.hero-art-card { width:min(100%,450px); padding:14px; border-radius:34px; background:rgba(255,255,255,.8); border:1px solid rgba(255,255,255,.95); box-shadow:0 25px 70px rgba(48,78,105,.13); transform:rotate(1.5deg); }
+.hero-art-card img { display:block; width:100%; height:auto; border-radius:25px; }
+.hero-art-caption { display:flex; align-items:center; gap:12px; padding:12px 14px 8px; }
+.hero-art-caption > span { display:grid; place-items:center; width:38px; height:38px; border-radius:14px; background:#fff4d9; color:#b77a24; font-size:1.3rem; }
+.hero-art-caption strong,.hero-art-caption small { display:block; }
+.hero-art-caption strong { color:var(--navy); font-size:.9rem; }
+.hero-art-caption small { color:var(--muted); font-size:.77rem; }
+.btn { border-radius:999px; padding:14px 25px; box-shadow:0 5px 14px rgba(30,90,85,.08); }
+.btn-primary { background:linear-gradient(115deg,#258f83,#327e9b); }
+.btn-primary:hover { box-shadow:0 12px 25px rgba(37,143,131,.22); }
+.feature-card { border-radius:24px; border:1px solid rgba(224,233,239,.9); box-shadow:0 10px 28px rgba(33,51,79,.045); transition:transform .25s ease,box-shadow .25s ease,border-color .25s ease; }
+.feature-card:hover { transform:translateY(-6px); box-shadow:0 18px 38px rgba(33,51,79,.1); border-color:#cce5df; }
+.feature-icon { width:72px; height:72px; display:grid; place-items:center; border-radius:22px; background:#edf5ff; font-size:2rem; }
+.feature-card:nth-child(2) .feature-icon { background:#fff0ed; }
+.feature-card:nth-child(3) .feature-icon { background:#edf7ef; }
+.highlight-section { background:linear-gradient(120deg,#e8f5ef,#eaf2ff 60%,#f8edff); border-radius:36px; margin:15px auto; width:min(94%,1400px); }
+.highlight-content { padding-top:48px; padding-bottom:48px; }
+.site-footer { background:#21334f; border-radius:32px 32px 0 0; margin-top:50px; }
+.site-footer p,.site-footer .logo { color:#e9f1f5; }
+.site-footer .logo span { color:#7dd0bd; }
+.eyebrow { letter-spacing:2.2px; }
+.music-toggle { position:fixed; z-index:90; left:20px; bottom:20px; display:flex; align-items:center; gap:9px; border:1px solid #dbe8e8; border-radius:999px; padding:11px 16px; background:rgba(255,255,255,.94); color:#285c60; box-shadow:0 8px 24px rgba(33,51,79,.12); font-weight:700; font-size:.82rem; cursor:pointer; backdrop-filter:blur(12px); }
+.music-toggle:hover { transform:translateY(-2px); }
+.music-icon { display:grid; place-items:center; width:25px; height:25px; border-radius:50%; background:#e5f4ef; font-size:1rem; }
+.music-toggle[aria-pressed="true"] .music-icon { background:#dcecff; }
+.page-hero { padding:75px 0 45px; text-align:center; background:radial-gradient(ellipse at 50% 0%,#e7f4f2 0%,transparent 65%); }
+.page-hero .container { max-width:820px; }
+.page-hero p:not(.eyebrow) { max-width:680px; margin:0 auto; font-size:1.05rem; }
+.content-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:22px; }
+.info-card { padding:27px; background:#fff; border:1px solid var(--border); border-radius:22px; box-shadow:0 10px 28px rgba(33,51,79,.05); }
+.info-card h3 { margin:12px 0 8px; }
+.info-card p { margin:0; }
+.info-card .mini-icon { width:54px; height:54px; display:grid; place-items:center; border-radius:17px; background:#eaf5f2; font-size:1.5rem; }
+.soft-panel { background:linear-gradient(130deg,#eff7f4,#f1f4ff); border:1px solid #e2ecec; border-radius:28px; padding:30px; }
+.quiz-shell { max-width:760px; margin:0 auto; background:#fff; padding:clamp(22px,4vw,40px); border:1px solid var(--border); border-radius:28px; box-shadow:var(--shadow); }
+.quiz-progress-track { height:9px; background:#edf1f5; border-radius:99px; overflow:hidden; margin:15px 0 25px; }
+.quiz-progress-fill { height:100%; width:0; background:linear-gradient(90deg,#258f83,#6a9bd1); transition:width .3s ease; }
+.quiz-options { display:grid; gap:11px; margin:22px 0; }
+.quiz-choice { display:flex; align-items:center; gap:13px; width:100%; padding:15px 17px; border:1.5px solid #e4eaf0; border-radius:15px; background:#fff; text-align:left; color:var(--text); cursor:pointer; transition:.2s; }
+.quiz-choice:hover:not(:disabled) { border-color:#80bdb1; background:#f5fbf9; }
+.quiz-choice .choice-letter { flex:0 0 30px; height:30px; display:grid; place-items:center; border-radius:10px; background:#f0f3f7; color:#5b6a7c; font-weight:800; }
+.quiz-choice.correct { border-color:#4da98e; background:#eff9f4; }
+.quiz-choice.wrong { border-color:#e39a8e; background:#fff4f1; }
+.quiz-feedback { min-height:28px; padding:8px 0; font-weight:600; }
+.quiz-actions { display:flex; justify-content:space-between; align-items:center; gap:12px; flex-wrap:wrap; }
+.quiz-result { text-align:center; padding:18px 0; }
+.score-ring { width:132px; height:132px; margin:15px auto 22px; display:grid; place-items:center; border-radius:50%; background:linear-gradient(135deg,#e5f5ef,#e9f0ff); color:var(--navy); font-size:1.8rem; font-weight:800; }
+.quiz-note { font-size:.86rem; margin-top:18px; }
+.support-list { display:grid; gap:14px; max-width:800px; margin:25px auto; }
+.support-row { padding:18px 20px; background:#fff; border:1px solid var(--border); border-radius:18px; }
+.support-row h3 { font-size:1.05rem; margin-bottom:5px; }
+.support-row p { margin:0; }
+:focus-visible { outline:3px solid rgba(37,143,131,.35); outline-offset:3px; }
+@media (max-width:800px) { .hero { grid-template-columns:1fr; text-align:center; min-height:auto; padding-top:55px; } .hero-description { margin-left:auto; margin-right:auto; } .hero-actions { justify-content:center; } .hero-visual { margin-top:12px; } .hero-art-card { max-width:390px; } .content-grid { grid-template-columns:repeat(2,minmax(0,1fr)); } }
+@media (max-width:560px) { .section { padding:58px 0; } .content-grid { grid-template-columns:1fr; } .hero h1 { font-size:clamp(2.4rem,11vw,3.5rem); } .music-toggle { left:12px; bottom:12px; padding:9px 12px; font-size:.75rem; } .highlight-section { width:100%; border-radius:0; } .site-footer { border-radius:24px 24px 0 0; } }
+@media (prefers-reduced-motion:reduce) { *,*::before,*::after { scroll-behavior:auto!important; animation-duration:.01ms!important; transition-duration:.01ms!important; } }
+
+.feature-illustration { display:block; width:116px; height:96px; object-fit:contain; margin:0 auto 14px; }
