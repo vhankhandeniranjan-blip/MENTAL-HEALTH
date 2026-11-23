@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A gentle guided breathing exercise from Mind Matters.">
+  <title>Guided Breathing | Mind Matters</title>
+  <link rel="stylesheet" href="styles/style.css">
+  <link rel="icon" type="image/svg+xml" href="pics/favicon.svg">
+  <style>
+    .breathing-main{min-height:70vh;padding:64px 20px 90px;text-align:center}
+    .breathing-wrap{max-width:760px;margin:0 auto}
+    .breathing-wrap h1{color:var(--navy);font-family:Manrope,sans-serif;font-size:clamp(2rem,5vw,3rem);margin:12px 0}
+    .breathing-intro{max-width:590px;margin:0 auto;color:var(--muted);line-height:1.7}
+    .breath-stage{display:grid;place-items:center;min-height:330px;margin:20px auto 12px}
+    .breath-orbit{width:220px;height:220px;border-radius:50%;display:grid;place-items:center;background:radial-gradient(circle,#fff 0 48%,#d9f0e9 49% 67%,#b9dfd5 68%);box-shadow:0 18px 55px rgba(22,139,131,.15);transition:transform 4s ease-in-out}
+    .breath-orbit.inhale{transform:scale(1.22)}
+    .breath-orbit.exhale{transform:scale(.82)}
+    .breath-core{width:145px;height:145px;border-radius:50%;background:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;box-shadow:0 5px 25px rgba(24,50,71,.08)}
+    .breath-phase{font-family:Manrope,sans-serif;font-size:1.35rem;font-weight:800;color:var(--teal-dark)}
+    .breath-count{font-size:1rem;color:var(--muted);margin-top:5px}
+    .breath-controls{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin:20px 0}
+    .breath-controls button{border:0;border-radius:999px;padding:13px 24px;font:600 1rem 'DM Sans',sans-serif;cursor:pointer}
+    #breath-start{background:var(--teal);color:white}#breath-reset{background:#e8f3f5;color:var(--navy)}
+    .breath-note{max-width:570px;margin:20px auto 0;padding:16px 20px;border-radius:14px;background:#eef6f2;color:#52665f;line-height:1.6;font-size:.94rem}
+    @media(prefers-reduced-motion:reduce){.breath-orbit{transition:none}}
+  </style>
+  <script src="scripts/script.js" defer></script>
+</head>
+<body>
+<header class="site-header"><nav class="navbar container">
+  <a href="index.html" class="logo">Mind<span>Matters.</span></a>
+  <button class="menu-toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+  <ul class="nav-links"><li><a href="index.html">Home</a></li><li><a href="challenges.html">Challenges</a></li><li><a href="wellbeing.html">Wellbeing</a></li><li><a href="breathing.html" class="active">Breathing</a></li><li><a href="quiz.html">Quiz</a></li><li><a href="support.html">Get Help</a></li></ul>
+</nav></header>
+<main class="breathing-main"><div class="breathing-wrap">
+  <p class="eyebrow">PAUSE • RESET • CONTINUE</p>
+  <h1>Take a gentle breathing break</h1>
+  <p class="breathing-intro">Follow the circle if it feels comfortable. Breathe gently and naturally—there is no need to take unusually deep breaths or match the timing perfectly.</p>
+  <div class="breath-stage" aria-live="polite"><div class="breath-orbit" id="breath-orbit"><div class="breath-core"><span class="breath-phase" id="breath-phase">Ready</span><span class="breath-count" id="breath-count">Press start</span></div></div></div>
+  <div class="breath-controls"><button id="breath-start" type="button">Start</button><button id="breath-reset" type="button">Reset</button></div>
+  <p class="breath-note" id="breath-status">The guide uses a comfortable 4-second inhale and 4-second exhale, with no breath-holding. You can stop at any time and breathe normally.</p>
+  <p class="small-note">If you feel dizzy, uncomfortable or short of breath, stop the exercise and return to your normal breathing.</p>
+</div></main>
+<footer class="site-footer"><div class="container footer-content"><a href="index.html" class="logo">Mind<span>Matters.</span></a><p>Break the silence. Stop the stigma. Support each other.</p><p class="copyright">© 2026 Mind Matters | A Student Awareness Project</p></div></footer>
+<script>
+(() => {
+  const orbit=document.getElementById('breath-orbit');
+  const phase=document.getElementById('breath-phase');
+  const count=document.getElementById('breath-count');
+  const start=document.getElementById('breath-start');
+  const reset=document.getElementById('breath-reset');
+  const status=document.getElementById('breath-status');
+  let timer=null, running=false, remaining=4, mode='inhale';
+  function show(){phase.textContent=running?(mode==='inhale'?'Breathe in':'Breathe out'):'Ready';count.textContent=running?remaining+' seconds':'Press start';orbit.classList.toggle('inhale',running&&mode==='inhale');orbit.classList.toggle('exhale',running&&mode==='exhale');start.textContent=running?'Pause':'Start';}
+  function tick(){remaining--;if(remaining<=0){mode=mode==='inhale'?'exhale':'inhale';remaining=4;}show();}
+  function pause(){if(timer)clearInterval(timer);timer=null;running=false;orbit.classList.remove('inhale','exhale');phase.textContent='Paused';count.textContent='Breathe normally';start.textContent='Resume';}
+  start.addEventListener('click',()=>{if(running){pause();return;}running=true;if(!timer){mode='inhale';remaining=4;}show();timer=setInterval(tick,1000);status.textContent='Follow the gentle rhythm only if it feels comfortable. No need to force your breathing.';});
+  reset.addEventListener('click',()=>{if(timer)clearInterval(timer);timer=null;running=false;mode='inhale';remaining=4;orbit.classList.remove('inhale','exhale');phase.textContent='Ready';count.textContent='Press start';start.textContent='Start';status.textContent='The guide uses a comfortable 4-second inhale and 4-second exhale, with no breath-holding. You can stop at any time and breathe normally.';});
+})();
+</script>
+</body></html>
